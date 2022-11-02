@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid CSS</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            
+        }
+
+        html,body{
+            height: 100vh;
+            width: 100vw;
+        }
+
+        /*DISPLAY GRID*/
+
+        h1{
+            font-family: Arial, Helvetica, sans-serif;
+            width: 100%;
+            padding: 10px 0;
+            background-color: rgb(70, 70, 70);
+            color: white;
+            text-align: center;
+        } 
+
+        div.container{
+            height: 200px;
+            background-color: rgb(193, 162, 222);
+            border: 1px solid green;
+            padding: 15px;
+            display: grid;
+            /*dividindo conteúdo em colunas e dando tamanho a cada uma delas*/
+            grid-template-columns: 50px auto 10%; 
+            /*Manipulando as linhas*/
+            grid-template-rows: 30% 70%;
+            /*Espaçamento entre os items*/
+            gap: 5px;
+            /*row-gap: 10px;
+            column-gap: 8px;*/
+        }
+
+        div.container div{
+            background-color: #ccc;
+            padding: 20px;
+            border: 2px solid blue;
+        }
+
+        div.container-areas{
+            background-color: rgb(193, 162, 222);
+            border: 1px solid green;
+            padding: 15px;
+            display: grid;
+            gap: 5px;
+            /*Dimencionando cada área*/
+            grid-template-areas: 
+                'header header header header header header'
+                'sidebar conteudo conteudo conteudo conteudo conteudo'
+                'footer footer footer footer footer footer'
+            ;
+
+        }
+
+        div.container-areas div{
+            background-color: #ccc;
+            padding: 20px;
+            border: 2px solid blue;
+
+        }
+
+        /*Renomeando áreas para que o grid entenda*/
+        #header{
+            grid-area: header;
+        }
+
+        #sidebar{
+            grid-area: sidebar;
+            height: 20vh;
+        }
+
+        #conteudo{
+            grid-area: conteudo;
+            height: 20vh;
+        }
+
+        #footer{
+            grid-area: footer;
+        }
+
+        /* ALINHAMENTO COM O GRID*/
+
+        div.container-align{
+            height: 300px;
+            background-color: rgb(193, 162, 222);
+            border: 1px solid green;
+            padding: 15px;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            /*Alinhamento horizontal*/
+            justify-content: center; 
+            /*Alinhamento vertical*/
+            align-items: center;
+        }
+
+        div.align-divs{
+            background-color: #ccc;
+            padding: 20px;
+            border: 2px solid blue;
+           
+        }
+
+        /*ALINHAMENTO DE ITEMS*/
+
+        div.container-items{
+            background-color: rgb(193, 162, 222);
+            border: 1px solid green;
+            padding: 15px;
+            display: grid;
+            grid-template-columns: auto auto auto;
+           
+        }
+
+        .container-items div{
+            background-color: #ccc;
+            padding: 20px;
+            border: 2px solid blue;
+           
+        }
+
+        #item-1{
+            /*Definindo quantas colunas o item irá ocupar end - start*/
+            grid-column-start: 1;
+            grid-column-end: 4;
+        }
+
+        #item-2{
+            grid-row-start: 2;
+            grid-row-end: 4;
+        }
+
+        #item-3{
+            /*Posicionamento horizontal*/
+            justify-self: end;
+            height: 200px;
+        }
+
+        #item-4{
+            /*Posicionamento vertical em relação a area que foi delimitada para ele*/
+            align-self: center;
+        }
+
+        #item-5{
+            align-self: start;
+            height: 200px;
+        }
+
+        #item-6{
+            align-self: end;
+        }
+
+       
+
+
+
+    </style>
+</head>
+<body>
+    <h1>Trabalhando com Grid CSS</h1>
+    <div class="container">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+    </div>
+
+    <h1>Template areas</h1>
+    <div class="container-areas" id="template-areas">
+        <div id="header">
+            <p>Cabeçalho</p>
+        </div>
+
+        <div id="sidebar">
+            <p>Sidebar</p>
+        </div>
+
+        <div id="conteudo">
+            <p>Conteudo</p>
+        </div>
+
+        <div id="footer">
+            <p>Rodapé</p>
+        </div>
+    </div>
+
+    <h1>Alinhamento</h1>
+    <div class="container-align">
+        <div class="align-divs">1</div>
+        <div class="align-divs">2</div>
+        <div class="align-divs">3</div>
+        <div class="align-divs">4</div>
+        <div class="align-divs">5</div>
+        <div class="align-divs">6</div>
+    </div>
+
+    <h1>Alinhamento de items</h1>
+    <div class="container-items">
+        <div id="item-1">1</div>
+        <div id="item-2">2</div>
+        <div id="item-3">3</div>
+        <div id="item-4">4</div>
+        <div id="item-5">5</div>
+        <div id="item-6">6</div>
+    </div>
+    
+</body>
+</html>
